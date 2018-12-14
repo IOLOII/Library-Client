@@ -1,0 +1,42 @@
+<!--pages/index/link.wxml-->
+<!-- 新东方英语 -->
+<view wx:if="{{value==0}}">
+<web-view src="http://librarywap.koolearn.com/encryptedLogin/9fcf58a3105277a7/"></web-view>
+</view>
+<!-- 新语听书 -->
+<view wx:if="{{value==1}}">
+<web-view src="http://jt.wx.xinyulib.com/lib/m/auth/auth.jsp?u=fzzyjjxytsg&a=B636A929636721EFE2E7D322AB29EB1F"></web-view>
+</view>
+<!-- 微阅读 -->
+<view wx:if="{{value==2}}">
+<web-view src="http://gzpypu.w.chineseall.cn"></web-view>
+</view>
+<!-- 考试学习资源库 -->
+<view wx:if="{{value==3}}">
+<web-view src="http://wx.vipexam.org/index.html"></web-view>
+</view>
+<!-- QQ阅读 -->
+<view wx:if="{{value==4}}">
+<web-view src="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx54a70169c6558b8f&redirect_uri=http%3A%2F%2Fwww.readse.com%2Fservice%2Fwechat.user.auth.action&response_type=code&scope=snsapi_base&state=eyJib29raWQiOiIiLCJjb3JwQ29kZSI6InFrX2d6Znl6eWpzeHkiLCJnb1R5cGUiOjAsInNpbXBsZUF1dGgiOnRydWV9&connect_redirect=1#wechat_redirect"></web-view>
+</view>
+<!-- 博看微书屋 -->
+<view wx:if="{{value==5}}">
+<web-view src="http://wk.bookan.com.cn/index.php?op=Authentication.redirect&id=2166"></web-view>
+</view>
+<!-- 信息视窗 -->
+<view wx:if="{{value==6}}">
+<web-view src="http://cas.gzpyp.edu.cn/tsg/xxfwsc/2018-04/02/content_4dcc3c0ec95a4c168595893623210f59.shtml"></web-view>
+</view>
+<!-- 中邮期刊 -->
+<view wx:if="{{value==7}}">
+<web-view src="http://open.183read.cc/magazine/pyptsg.html"></web-view>
+</view>
+<!-- 阅读推广平台 -->
+<view wx:if="{{value==8}}">
+<web-view src="https://gzpyp.readerstar.com/"></web-view>
+</view>
+<!-- 更多 -->
+<view wx:if="{{value==9}}">
+<web-view src=""></web-view>
+</view>
+
