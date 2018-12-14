@@ -5,9 +5,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    menuitems: [
+      { text: '姓名', url: '', tips: '' },
+      { text: '学号', url: '', icon: '', tips: '' },
+      { text: '学院', url: '', icon: '', tips: '' },
+      { text: '班级', url: '', icon: '', tips: '' },
+      { text: '收藏', url: '', icon: '', tips: '' },
+      { text: '已借阅', url: '', icon: '', tips: '' },
+      { text: '借阅历史', url: '', icon: '', tips: '' },
+    ]
   },
 
+
+  toLogin:function(){
+ console.log('登录')
+  },
   /**
    * 生命周期函数--监听页面加载
    */

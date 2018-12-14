@@ -20,7 +20,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "番职电子资源",
     "navigationBarTextStyle":"black"
   },
   "tabBar": {
