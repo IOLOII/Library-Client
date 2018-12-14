@@ -1,0 +1,568 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	书目查询
+</title>
+        <style type="text/css">
+.inputISBN
+{
+display:none;
+}
+#ShowInfo
+{
+border:1px solid #dce0e8;
+padding:5px;
+cursor:hand !important;
+margin-right:5px;
+
+}
+#ShowPublish
+{
+border:1px solid #dce0e8;
+padding:5px;
+cursor:hand !important;
+margin-right:5px;
+}
+#ShowPubyear
+{
+border:1px solid #dce0e8;
+padding:5px;
+cursor:hand !important;
+margin-right:5px;
+}
+#Exit
+{
+display:none;
+}
+#Exit1
+{
+display:none;
+}
+#Exit2
+{
+display:none;
+}
+#Exit3
+{
+display:none;
+}
+#CboxPublish
+{
+display:none;
+}
+.Messageinfo
+{
+border:1px solid #red;
+padding:5px;
+cursor:hand !important;
+border-color:Red;
+margin-right:5px;
+}
+#box1_1{background-color: #c1e4fe;}
+</style>
+    <link href="CSS/styleSearch.css" rel="stylesheet" type="text/css" />
+    <script src="JS/jquery.js" type="text/javascript"></script>
+
+    <script src="JS/jquery-latest.pack.js" type="text/javascript"></script>
+</head>
+<body onload="loadXMLDoc();loadlocal()">
+    <form name="form1" method="post" action="NTRdrBookRetr.aspx?trType=name&amp;strSortType=&amp;strpageNum=10&amp;strSort=asc" id="form1">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE0ODIyMTk3MTUPZBYCAgMPZBYGAgQPEGRkFgFmZAIFDxBkZBYBZmQCBg8QZGQWAQIBZGS4TIE4Cpja1APtBSpl1lY94qL6nQ==" />
+</div>
+
+<script type="text/javascript">
+<!--
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+// -->
+</script>
+
+
+ 
+    
+    <div class="body">
+	<div class="mainbody2_out">
+		<div class="mainbody2_in">
+			<div class="mainbody">	
+			<div class="back_index">
+		
+					<a href="index.aspx">返回检索首页</a>  
+			</div>
+			<div class="headlogin">
+				<div class="info" id="login"><div><a href="NTRdrLogin.aspx" class="login">我的图书馆登录</a></div></div>
+			</div>
+			<div class="simple_search">
+			
+			  <div id="box1"><div id="box1_1">
+					<div class="searchbox">
+                        <select name="DropDownListType" id="DropDownListType">
+	<option value="name">书　名</option>
+	<option value="author">作　者</option>
+	<option value="classno">分类号</option>
+	<option value="isbn">ISBN</option>
+	<option value="callno">索书号</option>
+	<option value="subject">主题词</option>
+	<option value="publish">出版社</option>
+	<option selected="selected" value="text">任意词</option>
+
+</select>
+                        <input name="TxtKeyWord" type="text" id="TxtKeyWord" style="width:127px;" />
+                        <input type="submit" name="Button1" value="重新检索" id="Button1" class="submit" />
+                        <input type="submit" name="Button2" value="结果中检索" id="Button2" class="research" style="height:22px;" />
+					</div>
+					</div></div>
+					<div class="searchformat">
+						<span>每页显示</span>
+                        <select name="DropDownListPageNum" onchange="javascript:setTimeout('__doPostBack(\'DropDownListPageNum\',\'\')', 0)" id="DropDownListPageNum">
+	<option selected="selected" value="10">10</option>
+	<option value="20">20</option>
+	<option value="50">50</option>
+
+</select>
+						　<span>排序选项</span>
+                        <select name="DropDownListMatchType" onchange="javascript:setTimeout('__doPostBack(\'DropDownListMatchType\',\'\')', 0)" id="DropDownListMatchType">
+	<option selected="selected" value="">排序方式</option>
+	<option value="pubyear">出版日期</option>
+	<option value="callno">索书号</option>
+	<option value="publish">出版社</option>
+
+</select>
+			
+						<span>排序方式</span>
+                        <select name="DropDownList1" onchange="javascript:setTimeout('__doPostBack(\'DropDownList1\',\'\')', 0)" id="DropDownList1">
+	<option value="desc">降序排列</option>
+	<option selected="selected" value="asc">升序排列</option>
+
+</select>
+		
+					</div>
+				            <span id="LabMagessInfo" style="color:Red;"></span>
+				</div>
+				<!-----显示分页信息---->
+			
+			
+				<div class="turnpage"> 
+                 <div class="total" >
+                     
+                  <span id="labKeyWord" style="color:Red;"></span>
+                  共有<span id="labAllCount"></span>条记录
+                  <span id="labSecond"></span></div>
+                 <div class="ctrl">  
+                  页码：<span id="labCuurtPage"> </span>/<span id="labConutPage"></span>   
+                   &nbsp;&nbsp;&nbsp;每页显示：<span id="LabCountNum"></span> 记录      
+                   <span id="FristPage"></span>
+                    <span id="LabPrevPage"></span>
+                    <span id="LabPage1"></span>
+                    <span id="LabNextPage"></span>
+                    
+                  <span id="EndPage"></span>
+                 跳转：<input name="TxtGoPage" type="text" id="TxtGoPage" style="width:41px;" />
+                    <input type="submit" name="BtnGoPage" value="Go" id="BtnGoPage" class="submit" />
+            </div>      
+	            </div>
+	            <!-----显示已经选择的书籍------>
+	    
+	               <div style="padding:4px;"><span id="LabelNofound" style="color:#FF3300;"></span></div>
+                   <div style="padding:4px;">
+                   <span style="padding:4px 4px 4px 0px;"> </span>
+                   <span style="padding:4px 4px 4px 0px;"> </span>
+                   <span style="padding:4px 4px 4px 0px;"> </span>
+                   <span style="padding:4px 4px 4px 0px;"> </span>
+	          
+	           
+	           
+           <script type="text/javascript">
+                 $(document).ready(function(){
+                 $("#showPulish").mouseover(function(){
+                   $("#yes").hide();
+			       $("#Exit").show();
+                 });
+                $("#showPulish").mouseout(function(){
+                   $("#yes").show();
+			       $("#Exit").hide();
+                 });
+                  $("#showAuthor").mouseover(function(){
+                   $("#yes1").hide();
+			       $("#Exit1").show();
+                 });
+                $("#showAuthor").mouseout(function(){
+                   $("#yes1").show();
+			       $("#Exit1").hide();
+                 });
+                  $("#showYear").mouseover(function(){
+                   $("#yes2").hide();
+			       $("#Exit2").show();
+                 });
+                $("#showYear").mouseout(function(){
+                   $("#yes2").show();
+			       $("#Exit2").hide();
+                 });
+                    $("#showLanguage").mouseover(function(){
+                   $("#yes3").hide();
+			       $("#Exit3").show();
+                 });
+                $("#showLanguage").mouseout(function(){
+                   $("#yes4").show();
+			       $("#Exit4").hide();
+                 });
+                 });
+                 
+                 </script>      
+              
+	            </div>
+	            <!---------------内容显示区---------------->
+	            <div class="content">
+					
+					<!-----------右边书目详细信息显示----------->
+					<div class="main">
+				   
+	<script type="text/javascript">
+						           $(document).ready(function(){
+						          $('.biblio a').each(function(i)
+						          {
+		                           $(this).toggle(function() 
+                                {
+			$(this).addClass('on').text('收起');
+			$("#Rtype"+i+"").show();
+		}, function() {
+			$(this).removeClass('on').text('展开');
+			$("#Rtype"+i+"").hide();
+		});
+		});
+	});
+						          </script>
+					</div>
+					
+					<div class="side">
+					<div class="searchtime">缩小检索范围 </div>
+		            	<ul class="sidesort">
+       	            <li ><strong>文献类型</strong>
+      	            <ul>   
+      		    
+     
+                   </ul>
+        	        </li>
+       	
+      	            <li ><strong>出版社</strong>
+      	            <ul>
+      	          <div id="yearAllInfo" style="display:none">     
+      		    
+         <span onclick="YearNoShow()" id="Span1" style="margin-left:50px;">只显示前10条......</span>           
+        </div>
+       <div  id="yearNum">
+          
+       <span onclick="YearShow()" id="yearNumMessAge" style="margin-left:50px;">查看更多信息......</span> 
+           </div>
+                   </ul>
+        	        </li>
+        	        
+       	
+      	            <li ><strong>作者</strong>
+      		         <ul>
+      		         <div id="authorAllinfo" style="display:none">
+      		          
+                   <span onclick="AuthorNoShow()" id="Span2" style="margin-left:50px;">只显示前10条......</span>           
+                  </div>
+                  <div id="AuthorNum">
+                             <span onclick="AuthorShow()" id="Span4" style="margin-left:50px;">查看更多信息......</span> 
+                  </div>
+      		         </ul>
+        	        </li>
+        	       
+        	        <li ><strong>出版年</strong>
+      		         <ul>
+      		         <div   id="PublicAllInfo" style="display:none">
+      		          
+       <span onclick="PublicNoShow()" id="Span3" style="margin-left:50px;">只显示前10条......</span>           
+       </div>
+       <div id="publicNum">
+       	          
+        <span onclick="PublicShow()" id="Span5" style="margin-left:50px;">查看更多信息......</span> 
+       </div>
+      		         </ul>
+        	        </li>
+        	       
+                  </ul>
+					</div>
+			     </div>
+			     
+			     <!-----显示分页信息---->
+			     <div class="turnpage"> 
+			      <div class="total" >
+                  <span id="KeyWord" style="color:Red;"></span>
+                  共有<span id="AllCount"></span>条记录
+                 <span id="Second"></span></div>
+                  <div class="ctrl">     
+                  页码：<span id="CuurtPage"> </span>/<span id="ConutPage"></span> 
+                   &nbsp;&nbsp;&nbsp;每页显示：<span id="CountNum"></span> 记录                
+                  <span id="LabFristPage"></span>
+                     <span id="PrePage"></span>
+                    <span id="Label1"></span>
+                     <span id="NextPage"></span>
+                     <span id="LabEndPage"></span>
+                
+                     跳转：<input name="TxtJump" type="text" id="TxtJump" style="width:41px;" />
+                    <input type="submit" name="BtnJump" value="Go" id="BtnJump" class="submit" />
+                        </div>
+	            </div>
+	            
+	     </div>
+		</div>
+		</div>
+		</div>
+    
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWHAKChbynBQL7/fbWAQLSs7wfAsic7pUMAoeCz80BAuuFu80BArqel58FAuPytLQNAs7SxKYPAv6Km7UDAoznisYGArursYYIAuKH9IcFAu3onuoJAuzonuoJAunonuoJAoDl2/wHAoDl2/wHAvW2z+oOAuul4voHAuPS7YMLAp3kj+UKAvr47ZoBAofUzOUIAvm5ofAJAr2f1qYMAtm00PEEApnEoLoPHnHun7DdXOF9TDz7jW9LpzdeTeo=" />
+</div></form>
+
+<script type="text/javascript">
+function loadXMLDoc()
+{
+var xmlhttp;
+var txt,x,xx,i,txtCDInfo;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+   var barList="";
+   var  boxes= document.getElementsByName("Checkbox1"); 
+            
+            for(i=0; i <boxes.length; i++) 
+            {
+   
+                barList += boxes[i].value;
+                barList +=";";
+              }  
+  xmlhttp.onreadystatechange=function()
+    {
+     if (xmlhttp.readyState==4 && xmlhttp.status==200)
+     {
+     x=xmlhttp.responseXML.documentElement.getElementsByTagName("imagsUrl");
+     for (i=0;i<x.length;i++)
+     {
+      xx=xmlhttp.responseXML.documentElement.getElementsByTagName("imagsUrl")[i].firstChild.nodeValue;
+      txt="<img src="+xx+" width=\"90\">";
+      txtCDInfo="txtCDInfo"+i+"";
+      document.getElementById(txtCDInfo).innerHTML=txt;  
+     }
+    }
+  }
+xmlhttp.open("GET","NTRdrBookRetrAjaxImage.aspx?ListISBN="+barList,true);
+xmlhttp.send();
+}
+</script>
+ <script type="text/javascript">
+function loadlocal()
+{
+var xmlhttp;
+var txt,x,xx,i,txtRtype;
+var txtloanDatanum="";
+var txtloannum="";
+var txthldcount="";
+var txthldallnum="";
+var ShowHolding="";
+var detailinfo="";
+var linkbookinfo="";
+var show200h="";
+
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+   var RecnoList="";
+   var  boxes= document.getElementsByName("StrTmpRecno"); 
+            
+            for(i=0; i <boxes.length; i++) 
+            {
+   
+                RecnoList += boxes[i].value;
+                RecnoList +=";";
+            }  
+     
+  xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    x=xmlhttp.responseXML.documentElement.getElementsByTagName("books");
+    for (i=0;i<x.length;i++)
+      {
+      
+        detailinfo="detailinfo"+i+"";
+        linkbookinfo="linkbookinfo"+i+"";
+        show200h="show200h"+i+"";
+       xx=x[i].getElementsByTagName("book");
+       
+      if(xx[0].getElementsByTagName("servicePoint")[0].firstChild.nodeValue=="false")
+      {
+      txt="<table width='100%' cellpadding='1' class='holdingtable'><thead><tr><td colspan=\"5\">馆藏信息</td></tr><tr><td>条码号</td><td>索书号</td><td>馆藏状态</td><td>流通类型</td><td>馆藏地点</td></tr></thead>";
+      for(j=0;j<xx.length;j++)
+      {
+       txt=txt + "<tbody><tr>";
+       txtloanDatanum=xx[j].getElementsByTagName("loanDatanum")[0].firstChild.nodeValue;
+       txtloannum=xx[j].getElementsByTagName("loannum")[0].firstChild.nodeValue;
+       txthldcount=xx[j].getElementsByTagName("hldcount")[0].firstChild.nodeValue;
+       txthldallnum=xx[j].getElementsByTagName("hldallnum")[0].firstChild.nodeValue;
+       xxx=xx[j].getElementsByTagName("barcode")[0].firstChild.nodeValue;
+       txt=txt + "<td>" + xxx + "</td>";
+       xxx=xx[j].getElementsByTagName("callno")[0].firstChild.nodeValue;
+       txt=txt + "<td>" + xxx + "</td>";
+       xxx=xx[j].getElementsByTagName("localstatu")[0].firstChild.nodeValue;
+       txt=txt + "<td>" + xxx + "</td>";
+       xxx=xx[j].getElementsByTagName("cirType")[0].firstChild.nodeValue;
+       txt=txt + "<td>" + xxx + "</td>";
+       xxx=xx[j].getElementsByTagName("local")[0].firstChild.nodeValue;
+       txt=txt + "<td>" + xxx + "</td>";
+       txt=txt + "</tr></tbody>";
+      }
+       txt=txt + "<tr><td colspan=\"5\" align=\"right\">";
+       if(x[i].getElementsByTagName("bookid")[0].firstChild.nodeValue=="书目记录号不存在"){
+        txt=txt + "<font color=\"Red\">无馆藏记录</font>";
+        }else{
+        txt=txt + "<a href='NTRdrBookRetrInfo.aspx?BookRecno="+x[i].getElementsByTagName("bookid")[0].firstChild.nodeValue+"' target=_blank'>查看完整信息 </a>";
+        }
+    txt=txt + "</td></tr>";
+    txt=txt + "</table>";
+      }else{
+      txt="<table width='100%' cellpadding='1' class='holdingtable'><thead><tr><td colspan=\"6\">馆藏信息</td></tr><tr><td>条码号</td><td>索书号</td><td>馆藏状态</td><td>流通点</td><td>流通类型</td><td>馆藏地点</td></tr></thead>";
+      for(j=0;j<xx.length;j++)
+      {
+       txt=txt + "<tbody><tr>";
+       txtloanDatanum=xx[j].getElementsByTagName("loanDatanum")[0].firstChild.nodeValue;
+       txtloannum=xx[j].getElementsByTagName("loannum")[0].firstChild.nodeValue;
+       txthldcount=xx[j].getElementsByTagName("hldcount")[0].firstChild.nodeValue;
+       txthldallnum=xx[j].getElementsByTagName("hldallnum")[0].firstChild.nodeValue;
+       xxx=xx[j].getElementsByTagName("barcode")[0].firstChild.nodeValue;
+       txt=txt + "<td>" + xxx + "</td>";
+       xxx=xx[j].getElementsByTagName("callno")[0].firstChild.nodeValue;
+       txt=txt + "<td>" + xxx + "</td>";
+       xxx=xx[j].getElementsByTagName("localstatu")[0].firstChild.nodeValue;
+       txt=txt + "<td>" + xxx + "</td>";
+       xxx=xx[j].getElementsByTagName("servicePoint")[0].firstChild.nodeValue;
+       txt=txt + "<td>" + xxx + "</td>";
+       xxx=xx[j].getElementsByTagName("cirType")[0].firstChild.nodeValue;
+       txt=txt + "<td>" + xxx + "</td>";
+       xxx=xx[j].getElementsByTagName("local")[0].firstChild.nodeValue;
+       txt=txt + "<td>" + xxx + "</td>";
+       
+       txt=txt + "</tr></tbody>";
+      }
+      
+      
+     if(x[i].getElementsByTagName("ehinfo")[0].firstChild.nodeValue!="无")
+         document.getElementById(show200h).innerHTML=":"+x[i].getElementsByTagName("ehinfo")[0].firstChild.nodeValue; 
+      
+      
+    txt=txt + "<tr><td colspan=\"6\" align=\"right\">";
+    if(x[i].getElementsByTagName("bookid")[0].firstChild.nodeValue=="书目记录号不存在")
+    {
+      off="off"+i+"";
+      $("."+off+"").hide();
+      document.getElementById(detailinfo).innerHTML="电子书全文"; 
+     
+      if(x[i].getElementsByTagName("ebook")[0].firstChild.nodeValue!="无")
+         document.getElementById(linkbookinfo).href=x[i].getElementsByTagName("ebook")[0].firstChild.nodeValue; 
+         
+      txt=txt + "<font color=\"Red\">无馆藏记录</font>";
+    }else{
+    txt=txt + "<a href='NTRdrBookRetrInfo.aspx?BookRecno="+x[i].getElementsByTagName("bookid")[0].firstChild.nodeValue+"' target=_blank'>查看完整信息 </a>";
+    }
+    txt=txt + "</td></tr>";
+    txt=txt + "</table>";
+      }
+      
+      
+    Rtype="Rtype"+i+"";
+    loanDatanum="loanDatanum"+i+"";
+    loannum="loannum"+i+"";
+    hldcount="hldcount"+i+"";
+    hldallnum="hldallnum"+i+"";
+    ShowHolding="ShowHolding"+i+"";
+  
+    
+    document.getElementById(Rtype).innerHTML=txt;
+    if(txthldallnum.length>0&&txthldallnum>0)
+    {
+    document.getElementById(loanDatanum).innerHTML=txtloanDatanum;
+    document.getElementById(loannum).innerHTML=txtloannum;
+    document.getElementById(hldcount).innerHTML=txthldcount;
+    document.getElementById(hldallnum).innerHTML=txthldallnum;
+    
+    }else{
+    document.getElementById(ShowHolding).innerHTML="";
+    }
+
+      }
+    }
+  
+  }
+xmlhttp.open("GET","GetlocalInfoAjax.aspx?ListRecno="+RecnoList,true);
+xmlhttp.send();
+}
+</script>
+<script  type="text/javascript">
+function YearShow(){
+document.getElementById("yearAllInfo").style.display="";
+document.getElementById("yearNum").style.display="none";
+}
+function YearNoShow(){
+document.getElementById("yearAllInfo").style.display="none";
+document.getElementById("yearNum").style.display="";
+}
+function AuthorShow(){
+document.getElementById("authorAllinfo").style.display="";
+document.getElementById("AuthorNum").style.display="none";
+}
+function AuthorNoShow(){
+document.getElementById("authorAllinfo").style.display="none";
+document.getElementById("AuthorNum").style.display="";
+}
+function PublicShow(){
+document.getElementById("PublicAllInfo").style.display="";
+document.getElementById("publicNum").style.display="none";
+}
+function PublicNoShow(){
+document.getElementById("PublicAllInfo").style.display="none";
+document.getElementById("publicNum").style.display="";
+}
+</script>
+
+    <script type="text/javascript">
+function tools(){
+ var top=$(document).scrollTop();
+ if(($.browser.msie==true)&&($.browser.version==6.0)){
+  if(top>168)$("#box1_1").css({position:"absolute",top:top-168});
+ }else{
+  if(top>168)$("#box1_1").css({position:"fixed",top:0,left:150,padding:6,width:948});
+ }
+ if(top<=168)$("#box1_1").css({position:"static",top:0,padding:0,width:944});
+}
+$(function(){
+ window.onscroll=tools;
+ window.onresize=tools;
+});
+</script> 
+</body>
+</html>

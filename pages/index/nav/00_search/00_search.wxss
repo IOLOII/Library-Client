@@ -1,0 +1,30 @@
+.search {
+  padding: 1% 3%;
+  background: #d0d0d0;
+}
+
+.page_row {
+  display: flex;
+  flex-direction: row;
+}
+
+.searchcion {
+  text-align: center;
+}
+
+.search input {
+  width: 80%;
+  height: 60rpx;
+  border-radius: 5px;
+  background: #fff;
+  border: none;
+  margin-right: 5px;
+}
+
+.search button {
+  width: 15%;
+  height: 60rpx;
+  text-align: center;
+  border: none;
+  background: white;
+}
