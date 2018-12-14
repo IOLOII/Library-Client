@@ -13,12 +13,24 @@
 
 <!--第二部分轮播图  -->
 <view class='nav'>
-  <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="500" circular="true">
-    <block wx:for="{{img}}" wx:key="item">
-      <!-- 循环数据-->
+<view class="swip-image">
+  <swiper indicator-dots autoplay interval='{{interval}}' class="swip-image">
+    <block wx:for="{{imgsrc}}">
       <swiper-item>
-        <image src='{{item.value}}' class='img'></image>
+        <image src='{{item}}' style='width:100%;' mode='widthFix'></image>
       </swiper-item>
     </block>
   </swiper>
+</view>
+</view>
+
+
+<!--第三部分分类  -->
+<view class='class-item'>
+  <block wx:for="{{classItem}}" wx:key="id">
+    <view class='item' bindtap='navigator' data-index="{{index}}">
+      <view class='item-icon'></view>
+      <view class='item-title'>{{item}}</view>
+    </view>
+  </block>
 </view>

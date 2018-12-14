@@ -47,3 +47,36 @@
   width: 100%;
   border: 1px solid #d0d0d0;
 }
+/*轮播*/
+.swip-image{
+height:50vw;
+flex: 1;
+width: 100%;
+
+}
+/*十个格子*/
+.class-item{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 3vw;
+  /* border:darkgreen 2px solid; */
+  justify-content: center;
+  
+}
+.item-icon{
+  border:darkgreen 2px solid;
+  display: flex;
+  width: 15vw;
+  height: 15vw;
+  margin: 1.5vw;
+
+}
+.item-title{
+  /* border:darkgreen 2px solid; */
+   width: 15vw;
+   text-align: center;
+    margin: 1.5vw;
+    font-size: 2.1vw;
+    color:gray;
+}
