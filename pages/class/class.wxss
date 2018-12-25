@@ -1,1 +1,46 @@
 /* pages/class/class.wxss */
+
+
+.container{
+  display: inline
+}
+.class_title{
+  border: 1px brown solid;
+  background-color: green;
+  height: 12vh;
+  width:  25vw;
+}
+.class_title2{
+  border: 1px brown solid;
+  height: 8vh;
+  width:  25vw;
+}
+
+.class_article{
+  border: 1px brown solid;
+  height: 12vh;
+  width:  70vw;
+}
+.swiper{
+  float: right
+}
+/* 
+.weui-navbar .default-item{
+
+ display: inline-block;
+ text-align: center;
+ font-size: 32rpx;
+ box-sizing: border-box;
+
+ padding-bottom: 20rpx;
+  color: red;
+    border: 1px brown solid;
+  height: 12vh;
+  width:  25vw;
+}
+.weui-navbar .item_on{
+ color: #00bba1;
+   border: 1px brown solid;
+  height: 12vh;
+  width:  25vw;
+} */
