@@ -1,3 +1,4 @@
+
 .page_row {
   display: flex;
   flex-direction: row;
@@ -45,14 +46,13 @@
 
 .nav, .swiper {
   width: 100%;
-  border: 1px solid #d0d0d0;
 }
 /*轮播*/
 .swip-image{
 height:50vw;
 flex: 1;
 width: 100%;
-
+background-color: blue;
 }
 /*十个格子*/
 .class-item{
@@ -64,12 +64,13 @@ width: 100%;
   justify-content: center;
   
 }
-.item-icon{
-  border:darkgreen 2px solid;
+.item-icon image{
+  /* border:darkgreen 2px solid;
+  border-radius: 5px; */
   display: flex;
   width: 15vw;
   height: 15vw;
-  margin: 1.5vw;
+  margin: 1.5vw 5vw 1.5vw;
 
 }
 .item-title{
@@ -79,4 +80,10 @@ width: 100%;
     margin: 1.5vw;
     font-size: 2.1vw;
     color:gray;
+}
+/*公告区域*/
+.redian{
+  width: 100vw;
+  height: 50vw;
+  background-color: green
 }

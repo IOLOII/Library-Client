@@ -13,8 +13,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.4.1",
-	"appid": "wx7f6934cacff583c0",
-	"projectname": "Book",
+	"appid": "wx20b94e39d06b6f73",
+	"projectname": "WClibrary",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

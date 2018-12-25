@@ -29,8 +29,12 @@
 <view class='class-item'>
   <block wx:for="{{classItem}}" wx:key="id">
     <view class='item' bindtap='navigator' data-index="{{index}}">
-      <view class='item-icon'></view>
-      <view class='item-title'>{{item}}</view>
+      <view class='item-icon'><image src='{{item.img_src}}'></image></view>
+      <view class='item-title'>{{item.class}}</view>
     </view>
   </block>
+</view>
+
+<view class='redian'>
+占位：通知栏
 </view>
