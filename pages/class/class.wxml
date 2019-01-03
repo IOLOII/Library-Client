@@ -1,27 +1,24 @@
 <!--pages/class/class.wxml-->
-<view class='container' style='flex-direction:row;justifu-content:flex-start'>
-  <view>
+
+<view class='container'>
+  <view class='scroll'>
     <scroll-view scroll-y="true" enable-back-to-top="true" scroll-with-animation="true">
-      <!-- <view style="background: red; width: 100px; height: 50px" >电子期刊</view>
-    <view style="background: green; width: 100px; height: 50px">电子图书</view>
-    <view style="background: blue; width: 100px; height: 50px">专题数据库</view>
-    <view style="background: white; width: 100px; height: 50px">试用数据库</view>
-    <view style="background: yellow; width: 100px; height: 50px">特色数据库</view> -->
-      <view wx:for="{{class_title}}" wx:for-item="class_title">
-        <view class='class_title' view id="{{index}}" class="{{activeIndex == index ?'class_title':'class_title2'}} " bindtap="tabClick">{{class_title}}</view>
+      <view wx:for="{{class_all}}" wx:for-item="class_all">
+        <view class='class_title' view id="{{index}}" class="{{activeIndex == index ?'class_title':'class_title2'}} " bindtap="tabClick"><view class='text'>{{class_all.title}}</view></view>
       </view>
     </scroll-view>
   </view>
-  <view>
-    <swiper current="{{activeIndex}}" class="swiper-box" duration="100" bindchange="bindChange" vertical="false" style='border:green 1px solid;width :50vw;height:100vh;folat:right'>
-      <view wx:for="{{class_title}}" wx:for-item="class_title">
+  <view class="">
+    <swiper current="{{activeIndex}}" class="swiper-box" duration="100" bindchange="bindChange" vertical="false">
+      <view wx:for="{{class_all}}" wx:for-item="class_all" class='swiper-view'>
         <swiper-item class="swiper-item">
-          <view class='swiper-item'>{{class_title}}</view>
+          <text class='swiper-item'>{{class_all.introduce}}</text>
         </swiper-item>
       </view>
     </swiper>
   </view>
 </view>
+
 
 <!-- <swiper vertical='true' style="background: red; width: 100px; height:100vh">
     <swiper-item>

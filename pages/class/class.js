@@ -7,47 +7,46 @@ Page({
    * 页面的初始数据
    */
   data: {
-    class_title: [1, 2, 3, 4, 5, 6],
+    class_all: [],
+   
     activeIndex: 0,
     slideOffset: 0,
   },
   tabClick: function(e) {
     var that = this;
     var idIndex = e.currentTarget.id;
-    var offsetW = e.currentTarget.offsetLeft; //2种方法获取距离文档左边有多少距离
     this.setData({
       activeIndex: idIndex,
-      slideOffset: offsetW
     });
     console.log(e);
-    console.log(e._relatedInfo.anchorTargetText)
   },
   bindChange: function(e) { //swicper 的绑定事件
     var current = e.detail.current;
-    if ((current + 1) % 4 == 0) {
-      console.log("fi")
-    }
-    var offsetW = current * mtabW; //2种方法获取距离文档左边有多少距离
     this.setData({
       activeIndex: current,
-      slideOffset: offsetW
     });
-
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.data.class_titlel;
     var that = this;
-    wx.getSystemInfo({
-      success: function(res) {
-        mtabW = res.windowWidth / 4; //设置tab的宽度
+    wx.cloud.init()
+    const db = wx.cloud.database()
+    db.collection('library_classify').get({
+      success(res) {
+        // res.data 包含该记录的数据
+        // console.log(res.data)
+        var all = res.data;
+       
         that.setData({
-          tabW: mtabW
-        })
-      }
-    });
+          class_all: all,
+        });
+        
+      },
+    
+    })
+    
   },
 
   /**
