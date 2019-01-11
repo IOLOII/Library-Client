@@ -1,7 +1,8 @@
 <!--pages/index/link.wxml-->
 <!-- 新东方英语 -->
 <view wx:if="{{value==0}}">
-<web-view src="http://librarywap.koolearn.com/encryptedLogin/9fcf58a3105277a7/"></web-view>
+<!--<web-view src="http://librarywap.koolearn.com/encryptedLogin/9fcf58a3105277a7/"></web-view>-->
+<web-view src="https://librarywap.koolearn.com/encryptedLogin/9fcf58a3105277a7"></web-view>
 </view>
 <!-- 新语听书 -->
 <view wx:if="{{value==1}}">
@@ -28,15 +29,54 @@
 <web-view src="http://cas.gzpyp.edu.cn/tsg/xxfwsc/2018-04/02/content_4dcc3c0ec95a4c168595893623210f59.shtml"></web-view>
 </view>
 <!-- 中邮期刊 -->
-<view wx:if="{{value==7}}">
+<view wx:if="{{value==9}}">
 <web-view src="http://open.183read.cc/magazine/pyptsg.html"></web-view>
 </view>
 <!-- 阅读推广平台 -->
 <view wx:if="{{value==8}}">
 <web-view src="https://gzpyp.readerstar.com/"></web-view>
 </view>
-<!-- 更多 -->
-<view wx:if="{{value==9}}">
-<web-view src=""></web-view>
+<!-- 更多 test_src -->
+<view wx:if="{{value==7}}">
+<web-view src="https://cas.gzpyp.edu.cn/tsg/zxgg/2018-06/05/content_8c670cd438ff4f15a7294e6239d02ef5.shtml"></web-view>
 </view>
 
+
+<view wx:if="{{value==200}}">
+<web-view src="https://cas.gzpyp.edu.cn/tsg/zxgg/2019-01/09/content_7c69aa8ce0124c59807ad99dfbbc5c5e.shtml"></web-view>
+</view>
+<view wx:if="{{value==201}}">
+<web-view src="https://cas.gzpyp.edu.cn/tsg/zxgg/2018-12/28/content_9f36d3e97c4044cdb8fb4bbc0e5f5cc5.shtml"></web-view>
+</view>
+<view wx:if="{{value==202}}">
+<web-view src="https://cas.gzpyp.edu.cn/tsg/zxgg/2018-12/27/content_df73535de91b4f6e9afe65abecbd89ea.shtml"></web-view>
+</view>
+<view wx:if="{{value==203}}">
+<web-view src="https://cas.gzpyp.edu.cn/tsg/zxgg/2018-12/26/content_bea1cd15e3c4446ab73376c6d455b6d2.shtml"></web-view>
+</view>
+<view wx:if="{{value==204}}">
+<web-view src="https://cas.gzpyp.edu.cn/tsg/zxgg/2018-12/26/content_3b6b701e5c00424c928f377ef703f3b1.shtml"></web-view>
+</view>
+<view wx:if="{{value==205}}">
+<web-view src="https://cas.gzpyp.edu.cn/tsg/zxgg/2018-12/24/content_6090a634b1cc4ed8815ac07951cd8218.shtml"></web-view>
+</view>
+<view wx:if="{{value==206}}">
+<web-view src="https://cas.gzpyp.edu.cn/tsg/zxgg/2018-12/24/content_dbb1396e8db547598598657b90a3728a.shtml"></web-view>
+</view>
+<view wx:if="{{value==207}}">
+<web-view src="https://cas.gzpyp.edu.cn/tsg/zxgg/2018-11/23/content_e5a3d755dc0e4768853538679e24b00c.shtml"></web-view>
+</view>
+<view wx:if="{{value==202}}">
+<web-view src="https://cas.gzpyp.edu.cn/tsg/zxgg/2018-12/27/content_df73535de91b4f6e9afe65abecbd89ea.shtml"></web-view>
+</view>
+<view wx:if="{{value==202}}">
+<web-view src="https://cas.gzpyp.edu.cn/tsg/zxgg/2018-12/27/content_df73535de91b4f6e9afe65abecbd89ea.shtml"></web-view>
+</view>
+<view wx:if="{{value==202}}">
+<web-view src="https://cas.gzpyp.edu.cn/tsg/zxgg/2018-12/27/content_df73535de91b4f6e9afe65abecbd89ea.shtml"></web-view>
+</view>
+
+
+<view wx:if="{{value==300}}">
+<web-view src="https://yuey.extract.fun"></web-view>
+</view>
