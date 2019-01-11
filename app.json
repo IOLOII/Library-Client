@@ -1,9 +1,10 @@
 {
   "pages": [
-    "pages/class/class",
+    
     "pages/index/index",
+    "pages/class/class",
     "pages/logs/logs",
-    "pages/my/my",
+    "pages/user/user",
     "pages/index/nav/00_search/00_search",
     "pages/index/nav/01_xdfy/01_xdfy",
     "pages/index/nav/02_qqyd/02_qqyd",
@@ -37,7 +38,7 @@
         "selectedIconPath": "images/class1.png"
       },
       {
-        "pagePath": "pages/my/my",
+        "pagePath": "pages/user/user",
         "text": "个人中心",
         "iconPath": "images/me.jpg",
         "selectedIconPath": "images/me.jpg"

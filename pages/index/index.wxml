@@ -6,22 +6,22 @@
       <input class="bc_text" placeholder="{{place_value}}" value="{{index_search_value}}" bindinput='bindInput' />
     </view>
   </view>
-  <view class='sousuo' bindtap='searchRD'>
+  <view class='search_button' bindtap='searchRD'>
     <navigator url='/pages/index/nav/00_search/00_search?skey={{index_search_value}}'>搜索</navigator>
   </view>
 </view>
 
 <!--第二部分轮播图  -->
-<view class='nav'>
-<view class="swip-image">
+<view class='swip'>
   <swiper indicator-dots autoplay interval='{{interval}}' class="swip-image">
     <block wx:for="{{imgsrc}}">
       <swiper-item>
+      <view class='item' bindtap='navigator3' data-index="{{index}}">
         <image src='{{item}}' style='width:100%;' mode='widthFix'></image>
+        </view>
       </swiper-item>
     </block>
   </swiper>
-</view>
 </view>
 
 
@@ -35,6 +35,10 @@
   </block>
 </view>
 
-<view class='redian'>
-占位：通知栏
+<view class='notice'>
+  <block wx:for="{{noticeItem}}" wx:key="id">
+    <view class='item' bindtap='navigator2' data-index="{{index}}">
+      <view class='item-notice'>{{item.notice}}</view>
+    </view>
+  </block>
 </view>
