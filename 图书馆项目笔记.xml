@@ -167,8 +167,28 @@
 				</body>
 			
 				<title>Nginx-linux-ubuntu配置</title>
-				<src>http://wiki.ubuntu.org.cn/Nginx</src>			
+				<src>http://wiki.ubuntu.org.cn/Nginx</src>		
+
+				<title>Centos6 Nginx安装</title>
+				<src>https://www.cnblogs.com/yaoximing/p/6068622.html</src>
+				
+				<question>
+				<title>解决Nginx: [error] open() ＂/usr/local/Nginx/logs/Nginx.pid</title>
+				<src>https://www.cnblogs.com/shabake/p/6406745.html</src>
+				
+				<title>Centos6 Nginx安装</title>
+				<src>https://www.cnblogs.com/yaoximing/p/6068622.html</src>
+				</question>
 			</nginx_note>
+			
+			<aliyun>
+				
+				<title>Lamp</title>
+				<code>
+				
+				</code>
+			
+			</aliyun>
 		</service>		
 		<docker>	
 			<title>Docker docs</title>
