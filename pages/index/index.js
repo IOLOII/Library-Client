@@ -3,7 +3,12 @@ Page({
   data: {
     index_search_value: '',
     place_value: '请输入需要查寻的书籍',
-   imgsrc: [],
+    imgsrc: [
+      "/images/img/service_test_1_00.png",
+      "/images/img/service_test_1_00.png",
+      "/images/img/service_test_1_00.png",
+      "/images/img/service_test_1_00.png",
+    ],
     interval: "1800",
     windowWidth: '',
     windowHeight: '',
@@ -87,27 +92,27 @@ Page({
 
 
     /*我改的注释我知道怎样还原-yuey*/
-    wx.request({
-      url: 'https://www.easy-mock.com/mock/5bcf443e5d383279bf01b332/example/mock',
-      data: {},
-      method: 'GET',                 // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-                                    // header: {}, // 设置请求的 header
-      success: function (res) {
-        console.log(res.data.data.titleimg1)
-                                    // console.log(res.data.data.projects[0].object)
-        const imgsrc = res.data.data.titleimg1;
-        that.setData({
-          imgsrc: imgsrc
+    // wx.request({
+    //   url: 'https://www.easy-mock.com/mock/5bcf443e5d383279bf01b332/example/mock',
+    //   data: {},
+    //   method: 'GET',                 // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+    //                                 // header: {}, // 设置请求的 header
+    //   success: function (res) {
+    //     console.log(res.data.data.titleimg1)
+    //                                 // console.log(res.data.data.projects[0].object)
+    //     const imgsrc = res.data.data.titleimg1;
+    //     that.setData({
+    //       imgsrc: imgsrc
 
-        })
-      },
-      fail: function () {
-                                      // fail
-      },
-      complete: function () {
-                                      // complete
-      }
-    })
+    //     })
+    //   },
+    //   fail: function () {
+    //                                   // fail
+    //   },
+    //   complete: function () {
+    //                                   // complete
+    //   }
+    // })
   },
   navigator: function (e) {
     var that = this;

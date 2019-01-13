@@ -80,3 +80,12 @@
 <view wx:if="{{value==300}}">
 <web-view src="https://yuey.extract.fun"></web-view>
 </view>
+<view wx:if="{{value==301}}">
+<web-view src="https://yuey.extract.fun"></web-view>
+</view>
+<view wx:if="{{value==302}}">
+<web-view src="https://yuey.extract.fun"></web-view>
+</view>
+<view wx:if="{{value==303}}">
+<web-view src="https://yuey.extract.fun"></web-view>
+</view>
