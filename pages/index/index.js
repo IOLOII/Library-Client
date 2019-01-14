@@ -3,13 +3,17 @@ Page({
   data: {
     index_search_value: '',
     place_value: '请输入需要查寻的书籍',
+    icon_size:0,
+    swip_img_w:100,
+    swip_img_h:100,
+    // icon_size_top:0,
     imgsrc: [
       "/images/img/service_test_1_00.png",
       "/images/img/service_test_1_00.png",
       "/images/img/service_test_1_00.png",
       "/images/img/service_test_1_00.png",
     ],
-    interval: "1800",
+    interval: "1800000",
     windowWidth: '',
     windowHeight: '',
     classItem: [{
@@ -22,7 +26,7 @@ Page({
       class: '微阅读',
       img_src: '/images/icon_9/wyd.jpg'
     }, {
-      class: '考试学习资源库',
+      class: '学习资源库',
       img_src: '/images/icon_9/ksxxzyk.jpg'
     }, {
       class: 'QQ阅读',
@@ -85,7 +89,17 @@ Page({
     })
   },
   onLoad: function (options) {
-    this.getData();
+    var _this = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        _this.setData({
+          screenHeight: res.windowHeight,
+          screenWidth: res.windowWidth,
+          icon_size: res.windowHeight*0.04,
+          // icon_size_top: (60 - res.windowHeight)/2,
+        });
+      }
+    });
   },
   getData: function () {
     var that = this;

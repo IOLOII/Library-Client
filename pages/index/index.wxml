@@ -1,10 +1,11 @@
 <!--第一部分搜索  -->
-<view class='page_row' bindtap="suo">
+<view class='seach_row' bindtap="suo">
   <view class="search">
-    <view class="search_edge">
-      <icon class="searchcion" size='20' type='search'></icon>
-      <input class="bc_text" placeholder="{{place_value}}" value="{{index_search_value}}" bindinput='bindInput' />
-    </view>
+  
+      <icon class="search_icon" size='{{icon_size}}' type='search'></icon>
+ 
+    <input class="bc_text" placeholder="{{place_value}}" value="{{index_search_value}}" bindinput='bindInput' />
+
   </view>
   <view class='search_button' bindtap='searchRD'>
     <navigator url='/pages/index/nav/00_search/00_search?skey={{index_search_value}}'>搜索</navigator>
@@ -12,24 +13,27 @@
 </view>
 
 <!--第二部分轮播图  -->
-<view class='swip'>
-  <swiper indicator-dots autoplay interval='{{interval}}' class="swip-image">
+
+  <swiper class='swip' indicator-dots autoplay interval='{{interval}}'>
     <block wx:for="{{imgsrc}}">
       <swiper-item>
-      <view class='item' bindtap='navigator3' data-index="{{index}}">
-        <image src='{{item}}' style='width:100%;' mode='widthFix'></image>
+        <view bindtap='navigator3' data-index="{{index}}">
+          <image style='width:{{swip_img_w}};height:{{swip_img_h}}' src='{{item}}'  mode='widthFix'></image>
         </view>
       </swiper-item>
     </block>
   </swiper>
-</view>
+
 
 
 <!--第三部分分类  -->
 <view class='class-item'>
   <block wx:for="{{classItem}}" wx:key="id">
     <view class='item' bindtap='navigator' data-index="{{index}}">
-      <view class='item-icon'><image src='{{item.img_src}}'></image></view>
+      <!-- <view wx:if="{{index <1}}">     </view> -->
+      <view class='item-icon'>
+        <image src='{{item.img_src}}'></image>
+      </view>
       <view class='item-title'>{{item.class}}</view>
     </view>
   </block>
