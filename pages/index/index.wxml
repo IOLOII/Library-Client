@@ -16,9 +16,9 @@
 
   <swiper class='swip' indicator-dots autoplay interval='{{interval}}'>
     <block wx:for="{{imgsrc}}">
-      <swiper-item>
+      <swiper-item class="swip-item">
         <view bindtap='navigator3' data-index="{{index}}">
-          <image style='width:{{swip_img_w}};height:{{swip_img_h}}' src='{{item}}'  mode='widthFix'></image>
+          <image style='width:100%;mode:widthFix;' src='{{item}}'  mode='widthFix'></image>
         </view>
       </swiper-item>
     </block>

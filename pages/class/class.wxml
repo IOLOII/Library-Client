@@ -12,7 +12,12 @@
     <swiper current="{{activeIndex}}" class="swiper-box" duration="100" bindchange="bindChange" vertical="false">
       <view wx:for="{{class_all}}" wx:for-item="class_all" class='swiper-view'>
         <swiper-item class="swiper-item">
-          <text class='swiper-item'>{{class_all.introduce}}</text>
+          <!-- <text class='swiper-item'> -->
+        
+         <textarea>{{class_all.introduce}}</textarea>
+          
+          
+          <!-- </text> -->
         </swiper-item>
       </view>
     </swiper>

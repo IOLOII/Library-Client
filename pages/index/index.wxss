@@ -37,18 +37,19 @@ page {
 /*搜索*/
 
 .search {
+  font-size: 16px;
   /* display: inline; */
   width: 80vw;
   /* height: 6vh; */
   height: 60rpx;
   text-align: center;
   /* font-size: 3vh; */
-  border-radius: 10rpx;
+  border-radius: 20rpx;
   /* margin-left: 2.5vw;
   margin-bottom: 1vh; */
   margin: 0 0 1vh 0;
   /* padding:0.6vh auto auto; */
-  border: 1px solid red;
+  border: 1px solid rgb(165, 165, 165);
   /* border: 1px solid #d0d0d0; */
 }
 
@@ -61,8 +62,10 @@ page {
   /* margin-right: 2.5vw; *//* line-height: 150%; */
   margin: 0 0 0 2.5vw;
   text-align: center;
-  border: 1px solid blue;
-  border-radius: 10rpx;
+  border: 1px solid rgb(235, 235, 235);
+  border-radius: 20rpx;
+  font-size: 16px;
+
 }
 
 /* 轮播组件 */
@@ -70,10 +73,19 @@ page {
 .swip{
   width: 95vw;
   height: 45vw;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 
 margin: 0 2.5vw 1vh 2.5vw;
 }
+.swip-item
+{width: 95vw;
+  
+  text-align: center;
+ border-radius: 2.5vw;
+
+
+}
+
 /* .swip image{
   width: 100%;
   height: 100%;
@@ -87,7 +99,7 @@ margin: 0 2.5vw 1vh 2.5vw;
   flex-direction: row;
   /* margin-top: 3vw; *//* border:darkgreen 2px solid; */
   justify-content: center;
-  background-color: #ffee9b;
+  background-color:rgb(247, 247, 226);
   /* margin: 0 2.5vw  0; */
   margin: 0 2.5vw 1vh 2.5vw;
   border-radius: 2.5vw;
@@ -123,8 +135,17 @@ margin: 0 2.5vw 1vh 2.5vw;
 /*公告区域*/
 
 .notice {
-  /* border: 1px solid #000000; */
-  background-color: blanchedalmond;
+  /* border: 1px solid #000000;
+  background-color: rgb(246, 251, 255); */
   border-radius: 2.5vw;
-  margin: 0 2.5vw 1vh 2.5vw;
+  margin: 0 2.5vw 2vh 2.5vw;
+
 }
+.item-notice{
+background-color: rgb(226, 234, 240);
+ border-radius: 2.5vw;
+  margin: 0 2.5vw 2vh 2.5vw;
+  /* border: 1px solid #000000; */
+  font-size: 16px;
+}
+
