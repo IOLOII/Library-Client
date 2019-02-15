@@ -1,4 +1,4 @@
-// pages/index/nav/08_zptl.js
+// pages/login/login.js
 Page({
 
   /**
@@ -8,11 +8,34 @@ Page({
 
   },
 
+
+  loginSubmit:function(e){
+    var that = this;
+    wx.request({
+      url: 'http://localhost:8080/servlet/testServlet',
+      header:{
+        'content-type': 'application/json'
+      },
+      data:{
+        user_id: e.detail.value.user_id,
+        user_password: e.detail.value.user_password
+      },
+      method: 'GET', 
+
+      success:function(res){
+        console.log(res)
+        wx.switchTab({
+          url: '/pages/user/user'
+        })
+      }
+    })
+
+  }, 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+ 
   },
 
   /**

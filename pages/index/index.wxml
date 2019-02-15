@@ -1,28 +1,78 @@
 <!--第一部分搜索  -->
-<view class='seach_row' bindtap="suo">
-  <view class="search">
-  
-      <icon class="search_icon" size='{{icon_size}}' type='search'></icon>
- 
-    <input class="bc_text" placeholder="{{place_value}}" value="{{index_search_value}}" bindinput='bindInput' />
-
+<!-- <view class='seach_row'> -->
+  <view class="cu-bar search bg-white" style="position:fixed;top:0;z-index:10">
+    <view class='search-form round'>
+      <text class="icon-search"></text>
+      <input type="text" placeholder="{{place_value}}" confirm-type="search" bindinput='bindInput'></input>
+    </view>
+    <view class='action'>
+      <button class='cu-btn bg-green shadow-blur round' bindinput="inputTyping">搜索</button>
+    </view>
   </view>
-  <view class='search_button' bindtap='searchRD'>
-    <navigator url='/pages/index/nav/00_search/00_search?skey={{index_search_value}}'>搜索</navigator>
+<!-- </view> -->
+  <!-- <view class="search">
+    <label > -->
+      <!-- <icon class="search_icon" size='{{icon_size}}' type='search'></icon> -->
+      <!-- <text class="icon-search"></text> -->
+      <!-- <input class="bc_text" placeholder="{{place_value}}" value="{{index_search_value}}" focus="{{inputShowed}}" bindinput='bindInput'  /> -->
+      <!-- <input class='weui-search-bar__input' placeholder="{{place_value}}" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping"></input> -->
+    <!-- </label>
   </view>
-</view>
+  <navigator url='/pages/index/nav/00_search/00_search?skey={{index_search_value}}'>
+    <view class='search_button '>搜索</view>
+  </navigator> -->
 
+<!-------------------search---------------------------->
+<!-- <view class='weui-search-bar'>
+  <view class='weui-search-bar__form'>
+    <view class='weui-search-bar__box'>
+      <icon type='search' class='weui-icon-search_in-box' size='14' />
+      <input class='weui-search-bar__input' placeholder='输入要搜索的内容' value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping"></input>
+      <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+        <icon type="clear" size="14"></icon>
+      </view>
+      <label class='weui-search-bar__label' hidden="{{inputShowed}}" bindtap="showInput">
+        <icon class="weui-icon-search" type="search" size="14"></icon>
+        <view class="weui-search-bar__text">搜索</view>
+      </label>
+      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+    </view>
+    <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
+      <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">
+          <view>实时搜索文本</view>
+        </view>
+      </navigator>
+      <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">
+          <view>实时搜索文本</view>
+        </view>
+      </navigator>
+      <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">
+          <view>实时搜索文本</view>
+        </view>
+      </navigator>
+      <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">
+          <view>实时搜索文本</view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view> -->
+<!------------------end----------------------------->
 <!--第二部分轮播图  -->
 
-  <swiper class='swip' indicator-dots autoplay interval='{{interval}}'>
-    <block wx:for="{{imgsrc}}">
-      <swiper-item class="swip-item">
-        <view bindtap='navigator3' data-index="{{index}}">
-          <image style='width:100%;mode:widthFix;' src='{{item}}'  mode='widthFix'></image>
-        </view>
-      </swiper-item>
-    </block>
-  </swiper>
+<swiper class='swip' indicator-dots autoplay interval='{{interval}}'>
+  <block wx:for="{{imgsrc}}">
+    <swiper-item class="swip-item">
+      <view bindtap='navigator3' data-index="{{index}}">
+        <image style='width:100%;mode:widthFix;' src='{{item}}' mode='widthFix'></image>
+      </view>
+    </swiper-item>
+  </block>
+</swiper>
 
 
 

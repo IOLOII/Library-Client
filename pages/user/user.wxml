@@ -1,27 +1,38 @@
-<!--pages/my/my.wxml-->
-<view class="mine-wrapper">
-  <view class="avatar-wrapper">
+<view class="avatar-wrapper">
     <view>
       <view class="text">
         <!--<text wx:if="{{userinfo.nickName}}">{{userinfo.nickName}}</text>-->
-        <text wx:if="{{userinfo.nickName}}" class="userinfo-nickname">{{userInfo.nickName}}</text>
-        <text wx:else bindtap="toLogin">注册 / 登录</text>
+        <!-- <text wx:if="{{userinfo.nickName}}" class="userinfo-nickname">{{userInfo.nickName}}</text>
+        <text wx:else bindtap="toLogin">注册 / 登录</text> -->
+        <button class='cu-btn bg-green ' style='margin-right:5vh'>注册</button>
+        <button class='cu-btn bg-blue ' style='margin-left:5vh' bindtap="toLogin">登录</button>
       </view>
     </view>
   </view>
-  <view class="list-wrapper">
+  <view class="list-wrapper padding-xl radius shadow-warp bg-white margin-top">
     <view class="weui-cells weui-cells_after-title">
     
-      <block wx:for="{{menuitems}}" wx:key="menu_for">
-        <navigator url="{{item.url}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <block wx:for="{{userdatas}}" wx:for-item="user" wx:key="userInfoList" >
+        <view class="weui-cell weui-cell_access" >
           <view class="weui-cell__hd">
-            <image src="{{item.icon}}"></image>
+            <image src="{{user.icon}}"></image>
           </view>
-          <view class="weui-cell__bd">{{item.text}}</view>
-          <view class="weui-cell__ft weui-cell__ft_in-access">{{item.tips}}</view>
+          <view class="weui-cell__bd">{{user.text}}</view>
+          <view>user</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access">{{user.tips}}</view>
+        </view>
+      </block>
+            <block wx:for="{{userdata}}" wx:for-item="user_do" wx:key="menu_for">
+        <navigator url="{{user_do.url}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+          <view class="weui-cell__hd">
+            <image src="{{user_do.icon}}"></image>
+          </view>
+          <view class="weui-cell__bd">{{user_do.text}}</view>
+          <view>user_do</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access">{{user_do.tips}}</view>
         </navigator>
       </block>
 
     </view>
   </view>
-</view>
+

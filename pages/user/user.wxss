@@ -1,6 +1,5 @@
-/* pages/my/my.wxss */
 .avatar-wrapper {
-  background: green;
+  /* background: rgb(233, 235, 130); */
   padding: 25px 0;
 }
 
@@ -35,4 +34,7 @@
   border-top: none;
 }
 
+.button{
+
+}
 /* user.wxss */
