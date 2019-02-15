@@ -1,6 +1,6 @@
 <!--pages/index/nav/00_search/00_search.wxml-->
 <view class="search page_row">
-  <input class="df_1" placeholder="{{place_value}}" value="{{searchValue}}" bindinput="searchValueInput" />
+  <input class="df_1" placeholder="{{place_value}}" value="{{searchValue}}" bindblur="searchValueInput" />
   <button class="df_2" bindtap="suo" data-id='1'>搜索</button>
 </view>
 <!-- <view class="search_no" wx:if="{{!centent_Show}}">

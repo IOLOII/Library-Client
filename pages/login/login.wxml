@@ -1,0 +1,5 @@
+<form bindsubmit='loginSubmit'>
+<input name="user_id" placeholder='请输入用户名'></input>
+<input name="user_password" type='password' placeholder='请输入密码'></input>
+<button form-type='submit'>登录</button>
+</form>

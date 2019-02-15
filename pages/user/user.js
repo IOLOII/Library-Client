@@ -5,20 +5,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-    menuitems: [
-      { text: '姓名', url: '', tips: '' },
+    userdatas: [
+      { text: '姓名', url: 'url', tips: 'tips' },
       { text: '学号', url: '', icon: '', tips: '' },
       { text: '学院', url: '', icon: '', tips: '' },
       { text: '班级', url: '', icon: '', tips: '' },
-      { text: '收藏', url: '', icon: '', tips: '' },
-      { text: '已借阅', url: '', icon: '', tips: '' },
-      { text: '借阅历史', url: '', icon: '', tips: '' },
-    ]
+      
+    ],
+  userdata:[
+    { text: '收藏', url: '', icon: '', tips: '' },
+    { text: '已借阅', url: '', icon: '', tips: '' },
+    { text: '借阅历史', url: '', icon: '', tips: '' },
+  ]
   },
-
+bindGetUserInfo:function(e){
+  console.log(e.detail.userInfo)
+},
 
   toLogin:function(){
- console.log('登录')
+    wx.redirectTo({
+      url: '/pages/login/login',
+    })
   },
   /**
    * 生命周期函数--监听页面加载

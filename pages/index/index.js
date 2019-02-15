@@ -1,6 +1,8 @@
 Page({
 
   data: {
+    inputShowed: false,
+    inputVal: "",
     index_search_value: '',
     place_value: '请输入需要查寻的书籍',
     icon_size:0,
@@ -88,6 +90,29 @@ Page({
       place_value: this.data.index_search_value //√
     })
   },
+
+  showInput: function () {
+    this.setData({
+      inputShowed: true
+    });
+  },
+  hideInput: function () {
+    this.setData({
+      inputVal: "",
+      inputShowed: false
+    });
+  },
+  clearInput: function () {
+    this.setData({
+      inputVal: ""
+    });
+  },
+  inputTyping: function (e) {
+    this.setData({
+      inputVal: e.detail.value
+    });
+  },
+
   onLoad: function (options) {
     var _this = this;
     wx.getSystemInfo({

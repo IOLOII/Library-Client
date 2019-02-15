@@ -1,4 +1,7 @@
 /**app.wxss**/
+@import "pages/lib/weui.wxss";
+@import "pages/lib/colorUI/colorui.wxss";
+@import "pages/lib/colorUI/icon.wxss";
 page{
 
   margin:0;

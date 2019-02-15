@@ -1,20 +1,11 @@
 {
   "pages": [
-    
+ 
     "pages/index/index",
     "pages/class/class",
-    "pages/logs/logs",
     "pages/user/user",
+    "pages/logs/logs",    
     "pages/index/nav/00_search/00_search",
-    "pages/index/nav/01_xdfy/01_xdfy",
-    "pages/index/nav/02_qqyd/02_qqyd",
-    "pages/index/nav/03_wyd/03_wyd",
-    "pages/index/nav/04_ksxxzy/04_ksxxzy",
-    "pages/index/nav/05_mz/05_mz",
-    "pages/index/nav/06_jtjy/06_jtjy",
-    "pages/index/nav/07_dsqg/07_dsqg",
-    "pages/index/nav/08_zptl/08_zptl",
-    "pages/index/nav/09_more/09_more",
     "pages/index/nav/10_link/link"
   ],
   "window": {
